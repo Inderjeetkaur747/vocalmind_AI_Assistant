@@ -1,0 +1,7 @@
+streamlit
+cohere
+scikit-learn
+streamlit-lottie
+requests
+wikipedia
+
