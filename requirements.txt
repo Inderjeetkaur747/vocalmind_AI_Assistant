@@ -1,3 +1,5 @@
 streamlit
 cohere
 streamlit-lottie
+pyttsx3
+
