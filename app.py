@@ -9,7 +9,7 @@ def main():
     st.set_page_config(page_title="VocalMind", page_icon="🤖", layout="centered")
 
     # Initialize session states
-        if "welcome_done" not in st.session_state:
+    if "welcome_done" not in st.session_state:
         st.session_state.welcome_done = False
 
     # 1. Welcome screen UI (ALWAYS shown)
