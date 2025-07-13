@@ -13,23 +13,24 @@ def load_lottie_file(filepath):
         return None
 
 def browser_speak(text):
-    st.markdown(
+    st.components.v1.html(
         f"""
         <script>
             var msg = new SpeechSynthesisUtterance("{text}");
-            window.speechSynthesis.cancel();
+            msg.lang = 'en-US';
+            window.speechSynthesis.cancel();  // stop any ongoing voice
             window.speechSynthesis.speak(msg);
         </script>
         """,
-        unsafe_allow_html=True,
+        height=0,
     )
 
 def open_website(url):
-    st.markdown(
+    st.components.v1.html(
         f"""
         <script>
             window.open("{url}", "_blank");
         </script>
         """,
-        unsafe_allow_html=True,
+        height=0,
     )
