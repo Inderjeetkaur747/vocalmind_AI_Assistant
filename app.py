@@ -31,7 +31,7 @@ def main():
         speak_js("Welcome to VocalMind, your AI-powered voice assistant ready to serve you.")
         st.session_state.welcome_done = True
         time.sleep(1)
-        st.experimental_rerun()
+        st.rerun()
 
     # Show launch button after voice
     if st.session_state.welcome_done:
