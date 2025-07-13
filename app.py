@@ -12,22 +12,22 @@ def main():
     if "welcome_done" not in st.session_state:
         st.session_state.welcome_done = False
 
-    # 1. Welcome screen UI (ALWAYS shown)
+    # Welcome text & animation
     st.markdown("<h1 style='text-align:center; color:#4B0082;'>Welcome to VocalMind 🤖</h1>", unsafe_allow_html=True)
     lottie_robot = load_lottie_file("assets/robot.json")
     st_lottie(lottie_robot, height=300)
 
-    # 2. Voice only on FIRST load
+    # Speak only once when page loads
     if not st.session_state.welcome_done:
         browser_speak("Welcome to VocalMind, your AI-powered voice assistant ready to serve you.")
         st.session_state.welcome_done = True
-        time.sleep(1)  # Let speech JS render fully
-        st.experimental_rerun()  # Rerun to show Launch button after speech
+        st.rerun()  # Rerun to show button after voice finishes
 
-    # 3. Now show Launch button (in second run)
-    if st.button("🚀 Launch Chatbot"):
-        st.session_state.page = "home"
-        st.rerun()
+    # Show launch button after voice
+    if st.session_state.welcome_done:
+        if st.button("🚀 Launch VocalMind"):
+            st.session_state.page = "home"
+            st.rerun()  # Rerun to load home page
 
 if __name__ == "__main__":
     if "page" not in st.session_state:
